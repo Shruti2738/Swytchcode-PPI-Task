@@ -18,6 +18,7 @@ def team_color(text, color):
         return text
 
 
+
 def run_swytchcode(method, params):
     command = ["swytchcode", "exec", method]
 
@@ -35,31 +36,28 @@ def run_swytchcode(method, params):
     )
 
     if result.returncode != 0:
-        print("\nSwytchcode execution failed:")
+        print("Swytchcode execution failed:")
         print(result.stderr)
         print(result.stdout)
         return None
 
-    output = result.stdout.strip()
+    # Parse the actual JSON response, ignoring CLI logs
+    lines = result.stdout.strip().splitlines()
 
-    # Find the JSON response in CLI output
-    decoder = json.JSONDecoder()
-    response = None
+    for line in reversed(lines):
+        try:
+            response = json.loads(line.strip())
 
-    for i, char in enumerate(output):
-        if char in "[{":
-            try:
-                response, _ = decoder.raw_decode(output[i:])
-                break
-            except json.JSONDecodeError:
-                continue
+            if isinstance(response, dict) and "data" in response:
+                return response
 
-    if response is None:
-        print("\nCould not parse Swytchcode response.")
-        print(output)
-        return None
+        except json.JSONDecodeError:
+            continue
 
-    return response
+    print("Could not parse Swytchcode response.")
+    print(result.stdout)
+    return None
+
 
 
 def get_records(response):
