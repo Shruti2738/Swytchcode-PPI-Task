@@ -1,0 +1,14 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Get Formula 1 race sessions",
+      "canonical_id": "openf1.sessions.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get drivers for a race session",
+      "canonical_id": "openf1.drivers.list"
+    }
+  ]
+}

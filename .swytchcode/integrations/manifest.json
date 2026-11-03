@@ -1,0 +1,52 @@
+{
+    "Weaviate.weaviate@1.39.0.rc.1":  {
+                                          "version":  "1.39.0.rc.1",
+                                          "sandbox_endpoint":  "",
+                                          "production_endpoint":  "https://{cluster_url}/v1",
+                                          "methods":  119,
+                                          "auth":  {
+                                                       "provider_slug":  "Weaviate",
+                                                       "type":  "api_key"
+                                                   },
+                                          "init_details":  {
+                                                               "VERSION":  "2.0.2",
+                                                               "auth_type":  "api_key"
+                                                           },
+                                          "execution_policy":  {
+                                                                   "max_retries":  3,
+                                                                   "base_delay_ms":  500,
+                                                                   "max_delay_ms":  30000,
+                                                                   "http_timeout_ms":  30000,
+                                                                   "connect_timeout_ms":  5000,
+                                                                   "total_timeout_ms":  90000,
+                                                                   "retry_on":  [
+                                                                                    429,
+                                                                                    503,
+                                                                                    504
+                                                                                ],
+                                                                   "non_retryable":  [
+                                                                                         400,
+                                                                                         401,
+                                                                                         403,
+                                                                                         404,
+                                                                                         422
+                                                                                     ],
+                                                                   "on_401":  "fail",
+                                                                   "max_concurrent":  5,
+                                                                   "max_response_bytes":  102400,
+                                                                   "idempotency":  {
+                                                                                       "mode":  "none",
+                                                                                       "header_name":  "Idempotency-Key",
+                                                                                       "scope":  "call"
+                                                                                   }
+                                                               },
+                                          "library_uuid":  "50ba2dad-e5b6-4133-89f3-eff94389083f",
+                                          "private":  false
+                                      },
+    "OpenF1.openf1@1.0.0":  {
+                                "version":  "1.0.0",
+                                "sandbox_endpoint":  "https://api.openf1.org/v1",
+                                "production_endpoint":  "https://api.openf1.org/v1",
+                                "methods":  2
+                            }
+}

@@ -1,0 +1,52 @@
+{
+  "editor": "none",
+  "integrations": {
+    "OpenF1.openf1": {
+      "version": "1.0.0"
+    }
+  },
+  "mode": "sandbox",
+  "tools": {
+    "openf1.drivers.list": {
+      "desc": "Retrieve driver information for a Formula 1 session using its session key.",
+      "inputs": [
+        {
+          "session_key": {
+            "LOCATION": "query",
+            "REQUIRED": true,
+            "TYPE": "STRING"
+          }
+        }
+      ],
+      "integration": "OpenF1.openf1@1.0.0",
+      "method_hash": "14ce3cc8bf85e73d3ac0996d5ce4a56d39b2cbb10631f63e34f3e88ad6d1c4bb",
+      "summary": "Get drivers for a race session",
+      "type": "method"
+    },
+    "openf1.sessions.list": {
+      "desc": "Retrieve Formula 1 race sessions for a given year and session name.",
+      "inputs": [
+        {
+          "year": {
+            "LOCATION": "query",
+            "REQUIRED": true,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "session_name": {
+            "LOCATION": "query",
+            "REQUIRED": true,
+            "TYPE": "STRING"
+          }
+        }
+      ],
+      "integration": "OpenF1.openf1@1.0.0",
+      "method_hash": "125b6fde1c622a74a295368e5bfede7d07fff90d090b9fec2568bb2621f8c24c",
+      "summary": "Get Formula 1 race sessions",
+      "type": "method"
+    }
+  },
+  "version": "2.25.1",
+  "workspace": "swytchcode-openf1"
+}

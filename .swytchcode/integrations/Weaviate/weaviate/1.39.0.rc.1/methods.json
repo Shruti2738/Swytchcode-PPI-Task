@@ -1,0 +1,579 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Activate a database user by their ID",
+      "canonical_id": "weaviate.db.activate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a property to a collection's schema",
+      "canonical_id": "weaviate.property.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a reference to a specific property of a data object",
+      "canonical_id": "weaviate.reference.create2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a reference to an object's property",
+      "canonical_id": "weaviate.reference.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add permissions to a role",
+      "canonical_id": "weaviate.role.addPermissions.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Apply replication scaling plan for a collection",
+      "canonical_id": "weaviate.scale.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Assign roles to a specific group",
+      "canonical_id": "weaviate.group.assign.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Assign roles to a user",
+      "canonical_id": "weaviate.user.assign.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel a backup operation by its ID",
+      "canonical_id": "weaviate.backup.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel a backup restoration by ID",
+      "canonical_id": "weaviate.restore.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel a property's in-flight index reindex task",
+      "canonical_id": "weaviate.property.index.cancel"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel a replication operation by ID",
+      "canonical_id": "weaviate.replicate.cancel"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel an ongoing export by its ID",
+      "canonical_id": "weaviate.export.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel and delete a replication operation by its ID",
+      "canonical_id": "weaviate.replicate.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check backup creation status by ID",
+      "canonical_id": "weaviate.backup.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check backup restoration status for a specific backup",
+      "canonical_id": "weaviate.restore.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if a data object exists by its class and ID",
+      "canonical_id": "weaviate.object.execute"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if a tenant exists for a given class",
+      "canonical_id": "weaviate.tenant.execute"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if an object exists by its ID",
+      "canonical_id": "weaviate.object.execute1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if the application is ready to handle traffic",
+      "canonical_id": "weaviate.ready.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if the Weaviate instance is running and responsive",
+      "canonical_id": "weaviate.live.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a backup for a specific backend",
+      "canonical_id": "weaviate.backup.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new alias for a collection",
+      "canonical_id": "weaviate.alias.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new cluster-level namespace",
+      "canonical_id": "weaviate.namespace.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new data object",
+      "canonical_id": "weaviate.object.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new database user and return an API key",
+      "canonical_id": "weaviate.db.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new role with specific permissions",
+      "canonical_id": "weaviate.role.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create cross-references between collection items in bulk",
+      "canonical_id": "weaviate.reference.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create multiple data objects in a single request",
+      "canonical_id": "weaviate.object.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create new tenants for a specified collection",
+      "canonical_id": "weaviate.tenant.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Deactivate a specific database user",
+      "canonical_id": "weaviate.db.deactivate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Define and create a new collection",
+      "canonical_id": "weaviate.schema.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a collection and all its data",
+      "canonical_id": "weaviate.schema.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a namespace and mark it for cleanup",
+      "canonical_id": "weaviate.namespace.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a user and their database entry",
+      "canonical_id": "weaviate.db.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a vector index from a collection",
+      "canonical_id": "weaviate.vector.index.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete all replication operations",
+      "canonical_id": "weaviate.replicate.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete an object by its class name and ID",
+      "canonical_id": "weaviate.object.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete an object by its ID",
+      "canonical_id": "weaviate.object.delete2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete multiple objects based on a filter",
+      "canonical_id": "weaviate.object.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Determine if a role has specific permissions",
+      "canonical_id": "weaviate.role.hasPermission.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Discover available API endpoints and navigation links",
+      "canonical_id": "weaviate.resource.execute"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Execute a GraphQL query to retrieve Weaviate data",
+      "canonical_id": "weaviate.graphql.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Execute multiple GraphQL queries in a single request",
+      "canonical_id": "weaviate.batch.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch a role by its ID or name",
+      "canonical_id": "weaviate.role.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch a user's roles by ID and type",
+      "canonical_id": "weaviate.user.roles.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch detailed database user information by ID",
+      "canonical_id": "weaviate.db.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch roles assigned to a user",
+      "canonical_id": "weaviate.user.roles.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch roles for a specific group by ID and type",
+      "canonical_id": "weaviate.group.roles.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Force delete replication operations, use with caution",
+      "canonical_id": "weaviate.replicate.delete2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of all namespaces you have permission to view",
+      "canonical_id": "weaviate.namespace.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific namespace by its ID",
+      "canonical_id": "weaviate.namespace.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific tenant's details by class and name",
+      "canonical_id": "weaviate.tenant.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get classification status and results by ID",
+      "canonical_id": "weaviate.classification.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get groups assigned a specific role",
+      "canonical_id": "weaviate.role.groupAssignments.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get index status for all properties of a collection",
+      "canonical_id": "weaviate.index.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get information about the Weaviate instance",
+      "canonical_id": "weaviate.meta.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get node status for a specific collection",
+      "canonical_id": "weaviate.node.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get Raft consensus protocol statistics for the Weaviate cluster",
+      "canonical_id": "weaviate.statistic.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get replication operation details by ID",
+      "canonical_id": "weaviate.replicate.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get replication scale plan for a collection and replication factor",
+      "canonical_id": "weaviate.scale.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get shard status for a collection",
+      "canonical_id": "weaviate.shard.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the status of an export operation",
+      "canonical_id": "weaviate.export.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get users assigned to a role",
+      "canonical_id": "weaviate.role.users.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get users assigned to a specific role",
+      "canonical_id": "weaviate.role.userAssignments.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Handle JSON-RPC requests for tool discovery and invocation",
+      "canonical_id": "weaviate.mcp.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initiate a data export to a specified backend storage",
+      "canonical_id": "weaviate.export.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initiate a replica movement to a target node",
+      "canonical_id": "weaviate.replicate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all aliases, optionally filtered by class",
+      "canonical_id": "weaviate.alias.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all backups for a given backend",
+      "canonical_id": "weaviate.backup.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all database users with their roles and status",
+      "canonical_id": "weaviate.db.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all distributed tasks in the cluster",
+      "canonical_id": "weaviate.task.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all groups by type",
+      "canonical_id": "weaviate.group.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List objects from a specified collection",
+      "canonical_id": "weaviate.object.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List replication operations with optional filters",
+      "canonical_id": "weaviate.replicate.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Modify collection configuration settings",
+      "canonical_id": "weaviate.schema.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Rebuild a property's inverted index",
+      "canonical_id": "weaviate.property.rebuild.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a role and its associated permissions",
+      "canonical_id": "weaviate.role.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific object reference",
+      "canonical_id": "weaviate.reference.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific reference from an object's property",
+      "canonical_id": "weaviate.reference.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove an existing alias from the system",
+      "canonical_id": "weaviate.alias.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove an inverted index for a property",
+      "canonical_id": "weaviate.property.index.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove specified tenants from a collection",
+      "canonical_id": "weaviate.tenant.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Replace an existing data object with new property values",
+      "canonical_id": "weaviate.object.update2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Replace object references by ID and property name",
+      "canonical_id": "weaviate.reference.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Replace object references for a given property",
+      "canonical_id": "weaviate.reference.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Restore collections from a backup",
+      "canonical_id": "weaviate.restore.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Resume a suspended namespace to make it active again",
+      "canonical_id": "weaviate.resume.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific data object by its class and ID",
+      "canonical_id": "weaviate.object.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific object by its ID",
+      "canonical_id": "weaviate.object.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve alias details by name",
+      "canonical_id": "weaviate.alias.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve all available roles and their associated permissions",
+      "canonical_id": "weaviate.role.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve all database collection definitions",
+      "canonical_id": "weaviate.schema.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve status information for all nodes",
+      "canonical_id": "weaviate.node.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve tenants for a specific schema class",
+      "canonical_id": "weaviate.tenant.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve the definition of a specific collection",
+      "canonical_id": "weaviate.schema.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Revoke permissions from a role, deleting the role if all permissions are removed",
+      "canonical_id": "weaviate.role.removePermissions.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Revoke roles from a group by ID",
+      "canonical_id": "weaviate.group.revoke.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Revoke roles from a user",
+      "canonical_id": "weaviate.user.revoke.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Rotate a user's API key and revoke the old one",
+      "canonical_id": "weaviate.db.rotateKey.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Start a classification task",
+      "canonical_id": "weaviate.classification.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream MCP server-sent events",
+      "canonical_id": "weaviate.mcp.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Suspend a namespace and its associated resources",
+      "canonical_id": "weaviate.suspend.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Terminate an MCP session",
+      "canonical_id": "weaviate.mcp.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Tokenize text and see how it's indexed and queried",
+      "canonical_id": "weaviate.tokenize.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Tokenize text using a property's configuration",
+      "canonical_id": "weaviate.property.tokenize.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a namespace and its home node",
+      "canonical_id": "weaviate.namespace.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a property's inverted index configuration",
+      "canonical_id": "weaviate.property.index.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a shard's operational status",
+      "canonical_id": "weaviate.shard.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an alias to point to a different collection",
+      "canonical_id": "weaviate.alias.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an object by its ID",
+      "canonical_id": "weaviate.object.update3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an object by its ID",
+      "canonical_id": "weaviate.object.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update specific fields of an existing data object",
+      "canonical_id": "weaviate.object.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update tenant activity status within a collection",
+      "canonical_id": "weaviate.tenant.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Validate an object against a collection schema and metadata rules",
+      "canonical_id": "weaviate.validate.create"
+    }
+  ]
+}
