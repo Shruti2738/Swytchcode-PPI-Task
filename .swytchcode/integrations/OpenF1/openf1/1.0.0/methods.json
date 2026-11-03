@@ -9,6 +9,16 @@
       "method_uuid": "",
       "method_name": "Get drivers for a race session",
       "canonical_id": "openf1.drivers.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get tyre stints for a race session",
+      "canonical_id": "openf1.stints.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get pit stops for a race session",
+      "canonical_id": "openf1.pit.list"
     }
   ]
 }

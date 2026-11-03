@@ -1,0 +1,92 @@
+cd C:\Users\shrut\swytchcode-openf1
+$dir = ".\.swytchcode\integrations\OpenF1\openf1\1.0.0"
+Copy-Item "$dir\wrekenfile.yaml" "$dir\wrekenfile.yaml.bak"
+
+@'
+VERSION: 2.0.2
+
+METHODS:
+  openf1.sessions.list:
+    SUMMARY: Get Formula 1 race sessions
+    DESC: Retrieve Formula 1 race sessions for a given year and session name.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /sessions
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - year:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+      - session_name:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.sessions.list
+
+  openf1.drivers.list:
+    SUMMARY: Get drivers for a race session
+    DESC: Retrieve driver information for a Formula 1 session using its session key.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /drivers
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - session_key:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.drivers.list
+
+  openf1.stints.list:
+    SUMMARY: Get tyre stints for a race session
+    DESC: Retrieve tyre stint data (compound, start lap, end lap) for every driver in a Formula 1 session using its session key.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /stints
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - session_key:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.stints.list
+
+  openf1.pit.list:
+    SUMMARY: Get pit stops for a race session
+    DESC: Retrieve pit stop records (lap number and pit lane duration) for a Formula 1 session using its session key.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /pit
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - session_key:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.pit.list
+'@ | Set-Content "$dir\wrekenfile.yaml" -Encoding ascii

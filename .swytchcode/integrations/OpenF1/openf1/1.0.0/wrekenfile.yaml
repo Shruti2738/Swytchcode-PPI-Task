@@ -44,3 +44,43 @@ METHODS:
           REQUIRED: true
           LOCATION: query
     CANONICAL_ID: openf1.drivers.list
+
+  openf1.stints.list:
+    SUMMARY: Get tyre stints for a race session
+    DESC: Retrieve tyre stint data (compound, start lap, end lap) for every driver in a Formula 1 session using its session key.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /stints
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - session_key:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.stints.list
+
+  openf1.pit.list:
+    SUMMARY: Get pit stops for a race session
+    DESC: Retrieve pit stop records (lap number and pit lane duration) for a Formula 1 session using its session key.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /pit
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - {}
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - session_key:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    CANONICAL_ID: openf1.pit.list

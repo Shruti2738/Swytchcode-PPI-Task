@@ -23,6 +23,22 @@
       "summary": "Get drivers for a race session",
       "type": "method"
     },
+    "openf1.pit.list": {
+      "desc": "Retrieve pit stop records (lap number and pit lane duration) for a Formula 1 session using its session key.",
+      "inputs": [
+        {
+          "session_key": {
+            "LOCATION": "query",
+            "REQUIRED": true,
+            "TYPE": "STRING"
+          }
+        }
+      ],
+      "integration": "OpenF1.openf1@1.0.0",
+      "method_hash": "d7bd6e24e8fea7cb936af78d66ad8bb8d7f7d4d12c911870f510dd2b37fb8b8e",
+      "summary": "Get pit stops for a race session",
+      "type": "method"
+    },
     "openf1.sessions.list": {
       "desc": "Retrieve Formula 1 race sessions for a given year and session name.",
       "inputs": [
@@ -44,6 +60,22 @@
       "integration": "OpenF1.openf1@1.0.0",
       "method_hash": "125b6fde1c622a74a295368e5bfede7d07fff90d090b9fec2568bb2621f8c24c",
       "summary": "Get Formula 1 race sessions",
+      "type": "method"
+    },
+    "openf1.stints.list": {
+      "desc": "Retrieve tyre stint data (compound, start lap, end lap) for every driver in a Formula 1 session using its session key.",
+      "inputs": [
+        {
+          "session_key": {
+            "LOCATION": "query",
+            "REQUIRED": true,
+            "TYPE": "STRING"
+          }
+        }
+      ],
+      "integration": "OpenF1.openf1@1.0.0",
+      "method_hash": "39c7c2cd18d97a28ecff2ed60dba2312218534acbc0b5d92a82d608422f9d7ac",
+      "summary": "Get tyre stints for a race session",
       "type": "method"
     }
   },
