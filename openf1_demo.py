@@ -35,24 +35,62 @@ def run_swytchcode(method, params):
     )
 
     if result.returncode != 0:
-        print("Swytchcode execution failed:")
+        print("\nSwytchcode execution failed:")
         print(result.stderr)
         print(result.stdout)
         return None
 
-    output = result.stdout
+    output = result.stdout.strip()
+
+    # Find the JSON response in CLI output
     decoder = json.JSONDecoder()
+    response = None
 
     for i, char in enumerate(output):
-        if char == "{":
+        if char in "[{":
             try:
                 response, _ = decoder.raw_decode(output[i:])
-                return response
+                break
             except json.JSONDecodeError:
                 continue
 
-    print("Could not parse Swytchcode response.")
-    print(output)
+    if response is None:
+        print("\nCould not parse Swytchcode response.")
+        print(output)
+        return None
+
+    return response
+
+
+def get_records(response):
+    """
+    Extract a list of records from common Swytchcode
+    response formats.
+    """
+
+    if isinstance(response, list):
+        return response
+
+    if isinstance(response, str):
+        try:
+            return get_records(json.loads(response))
+        except json.JSONDecodeError:
+            return None
+
+    if isinstance(response, dict):
+
+        # Check common response wrapper fields
+        for key in ["data", "result", "response", "output"]:
+            if key in response:
+                records = get_records(response[key])
+
+                if records is not None:
+                    return records
+
+        # A single API record
+        if "session_key" in response or "driver_number" in response:
+            return [response]
+
     return None
 
 
@@ -73,23 +111,32 @@ def main():
         {"year": year, "session_name": "Race"}
     )
 
-    if not sessions_response:
+    if sessions_response is None:
         return
 
-    sessions = sessions_response.get("data", [])
+    sessions = get_records(sessions_response)
 
     if not sessions:
-        print("No race sessions found.")
+        print("\nNo valid session records found.")
+        print("Actual response:")
+        print(repr(sessions_response))
+        return
+
+    # Validate session records
+    if not isinstance(sessions[0], dict):
+        print("\nUnexpected session format:")
+        print(repr(sessions_response))
         return
 
     print(f"\nRACE SESSIONS - {year}")
-    print("-" * 65)
+    print("-" * 75)
 
     for i, session in enumerate(sessions):
         print(
-            f"{i + 1:2}. {session['country_name']:<22}"
-            f"{session['circuit_short_name']:<22}"
-            f"{session['date_start'][:10]}"
+            f"{i + 1:2}. "
+            f"{session.get('country_name', 'Unknown'):<22}"
+            f"{session.get('circuit_short_name', 'Unknown'):<22}"
+            f"{str(session.get('date_start', ''))[:10]}"
         )
 
     try:
@@ -104,49 +151,62 @@ def main():
         return
 
     selected_session = sessions[choice - 1]
-    session_key = selected_session["session_key"]
+    session_key = selected_session.get("session_key")
 
-    print(
-        f"\nFetching drivers for "
-        f"{selected_session['country_name']} Grand Prix..."
-    )
+    if session_key is None:
+        print("Session key missing from selected session.")
+        print(repr(selected_session))
+        return
+
+    country = selected_session.get("country_name", "Unknown")
+
+    print(f"\nFetching drivers for {country} Grand Prix...")
 
     drivers_response = run_swytchcode(
         "openf1.drivers.list",
         {"session_key": session_key}
     )
 
-    if not drivers_response:
+    if drivers_response is None:
         return
 
-    drivers = drivers_response.get("data", [])
+    drivers = get_records(drivers_response)
 
     if not drivers:
-        print("No drivers found.")
+        print("\nNo valid driver records found.")
+        print("Actual response:")
+        print(repr(drivers_response))
+        return
+
+    if not isinstance(drivers[0], dict):
+        print("\nUnexpected driver format:")
+        print(repr(drivers_response))
         return
 
     print("\n===================================")
-    print(f"  {selected_session['country_name'].upper()} GRAND PRIX")
+    print(f"  {country.upper()} GRAND PRIX")
     print("===================================")
 
     print(f"\n{'NO.':<6}{'DRIVER':<25}{'TEAM'}")
     print("-" * 65)
 
-    drivers.sort(key=lambda driver: driver["driver_number"])
+    drivers.sort(
+        key=lambda driver: int(driver.get("driver_number", 0))
+    )
 
     for driver in drivers:
         color = driver.get("team_colour", "FFFFFF")
 
         number = team_color(
-            f"{driver['driver_number']:<6}", color
+            f"{driver.get('driver_number', '?'):<6}", color
         )
 
         name = team_color(
-            f"{driver['full_name']:<25}", color
+            f"{driver.get('full_name', 'Unknown'):<25}", color
         )
 
         team = team_color(
-            driver["team_name"], color
+            driver.get("team_name", "Unknown"), color
         )
 
         print(f"{number}{name}{team}")
