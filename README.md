@@ -4,7 +4,7 @@ A small CLI app that fetches Formula 1 race sessions and driver lineups from the
 
 It started as a test of Swytchcode for my F1 analytics project, PitWall Analytics, whose data pipeline also pulls from OpenF1.
 
-**Demo video:** `<add link>`
+**Demo video:** `<https://drive.google.com/file/d/1lCUBeNxoDCY5F6LBgOm58rivcSArKMhq/view?usp=sharing>`
 
 ## Problem and intended user
 
